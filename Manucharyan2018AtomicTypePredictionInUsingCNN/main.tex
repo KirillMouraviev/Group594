@@ -1,0 +1,118 @@
+\documentclass[12pt,twoside]{article}
+\usepackage{jmlda}
+\usepackage{hyperref}
+%\NOREVIEWERNOTES
+\title
+    [] % Краткое название; не нужно, если полное название влезает в~колонтитул
+    {Предсказание свойств и типов атомов в молекулярных графах при помощи сверточных сетей}
+\author
+    [] % список авторов для колонтитула; не нужен, если основной список влезает в колонтитул
+    {Манучарян Вардан} % основной список авторов, выводимый в оглавление
+    [Манучарян Вардан] % список авторов, выводимый в заголовок; не нужен, если он не отличается от основного
+\thanks
+    {Научный руководитель:  Стрижов~В.\,В. 
+		 Задачу поставил:  Стрижов~В.\,В.
+     Консультанты:  Грудинин~С.,~Кадукова~М.}
+\email
+    {manucharyan.va@phystec.edu}
+\organization
+    {Московский физико-технический институт (государственный университет), Москва}
+\abstract
+    {Статья посвящена определению типов атомов и валентности в молекулярных графах при помощи методов машинного обучения. Предлагается использовать свёрточные нейронные сети (cNN), обученные на 3D структуре молекулярных графов. Для обучения используется <…> датасет, в котором определены тип атома (около 150 классов), гибридизация атома (4 класса) и тип связи (5 классов). Результат работы нового алгоритма будет сравниваться с Knodle \cite{article1}.
+
+
+\bigskip
+\textbf{Ключевые слова}: \emph {машинное обучение, классификация,
+свёрточные нейронные сети, молекулярные графы}.}
+
+\begin{document}
+\maketitle
+%\linenumbers
+\section{Введение}
+\paragraph{}
+	В этой работе мы хотим научиться эффективно классифицировать атомы, для того чтобы предсказывать взаимодействие молекул. Это важно во многих вычислительных методах в медицине и биологии, например, виртуальный скрининг при разработке новых лекарств \cite{article2}. При этом молекулы представимы в виде трёхмерных молекулярных графов, что позволяет использовать методы машинного обучения на графах.
+	
+	“В последние годы были предложены несколько алгоритмов. Самые ранние работы основывались на простых геометрических соображениях, использующих длины связей и валентные углы \cite{article3}. Позже стали учитывать функциональные группы \cite{article4}, гибридизацию и заряд атома \cite{article5,article6,article7,article8}. Чтобы уменьшить влияние ошибок в экспериментальном определении структуры были использованы некоторые подходы: максимальное взвешенное паросочетание \cite{article9,article10}, поиск структуры Льюиса \cite{article11}, максимизация \cite{article12} или минимизация \cite{article13,article14} некой метрики.”
+	
+	Также используют модели, основанные на свёрточных нейронных сетях (cNN) на графах \cite{article15,article16}.
+	
+	В данной работе предлагается <..>.
+	
+	Сравниваться данный алгоритм будет с алгоритмом, реализованным в библиотеке по распознаванию типов атомов Knodle \cite{article1}, основанным на мультиклассовой классификации при помощи метода опорных векторов.
+	
+\section{Постановка задачи}
+1. 15000 молекул в формате mol2 из базы данных PDBBindCN.
+2. 
+
+\begin{thebibliography}{1}
+\bibitem{article1}
+    \BibAuthor{Maria Kadukova, Sergei Grudinin}
+    \BibTitle{Knodle: A Support Vector Machines-Based Automatic Perception of Organic Molecules from 3D Coordinates}~//
+    \BibJournal{Journal of Chemical Information and Modeling, American Chemical Society}, 2016, 56 (8), pp.1410-1419.
+\bibitem{article2}
+    \BibAuthor{Bohdan Waszkowycz, David E Clark, and Emanuela Gancia}
+    \BibTitle{Outstanding challenges in protein–ligand docking and structure-based virtual screening}~//
+    \BibJournal{Wiley Interdiscip. Rev.: Comput. Mol. Sci.}, 1(2):229-259, 2011.
+\bibitem{article3}
+    \BibAuthor{Jon C Baber and Edward E Hodgkin}
+    \BibTitle{Automatic assignment of chemical connectivity to  organic m the Cambridge structural database}~//
+    \BibJournal{J. Chem. Inf. Comput. Sci.}, 32(5):401–406, 1992.
+\bibitem{article4}
+    \BibAuthor{Manfred Hendlich, Friedrich Rippmann, and Gerhard Barnickel}
+    \BibTitle{Bali: Automatic assignment of bond and atom types for protein ligands in the brookhaven protein databank}~//
+    \BibJournal{J. Chem. Inf. Comput. Sci.}, 37(4):774–778, 1997.
+\bibitem{article5}
+    \BibAuthor{Elke Lang, Claus-Wilhelm von der Lieth, and Thomas Forster}
+    \BibTitle{Automatic assignment of bond orders based on the analysis of the internal coordinates of molecular structures}~//
+    \BibJournal{Anal. Chim. Acta}, 265(2):283–289, 1992.
+\bibitem{article6}
+    \BibAuthor{Yuan Zhao, Tiejun Cheng, and Renxiao Wang}
+    \BibTitle{Automatic perception of organic molecules based on essential structural information}~//
+    \BibJournal{J. Chem. Inf. Model.}, 47(4):1379–1385, 2007.
+\bibitem{article7}
+    \BibAuthor{Daan MF van Aalten, R Bywater, John BC Findlay, Manfred Hendlich, Rob WW Hooft, and Gert Vriend}
+    \BibTitle{Prodrg, a program for generating molecular topologies and unique molecular descriptors from coordinates of small molecules}~//
+    \BibJournal{J. Comput.-Aided Mol. Des.}, 10(3):255–262, 1996.
+\bibitem{article8}
+    \BibAuthor{Qian Zhang, Wei Zhang, Youyong Li, Junmei  Wang, Liling Zhang, and Tingjun Hou}
+    \BibTitle{A rule based algorithm for automatic bond type perception}~//
+    \BibJournal{J. Cheminf.}, 4(1):1–10, 2012. 
+\bibitem{article9}
+    \BibAuthor{Paul Labute}
+    \BibTitle{On the perception of molecules from 3d atomic coordinates}~//
+    \BibJournal{J. Chem. Inf.  Model.}, 45(2):215–221, 2005. 
+\bibitem{article10}
+    \BibAuthor{Gerd Neudertand Gerhard Klebe}
+    \BibTitle{Fconv: Format conversion, manipulation and feature computation of molecular data}~//
+    \BibJournal{Bioinformatics}, 27(7):1021–1022, 2011.
+\bibitem{article11}
+    \BibAuthor{Matheus Froeyen and Piet Herdewijn}
+    \BibTitle{Correct bond order assignment in a molecular  framework using integer linear programming with application to molecules where only non-hydrogen atom coordinates are available}~//
+    \BibJournal{J. Chem. Inf. Model.}, 45(5):1267–1274, 2005.
+\bibitem{article12}
+    \BibAuthor{Sascha Urbaczek, Adrian Kolodzik, Inken Groth, Stefan Heuser, and Matthias Rarey}
+    \BibTitle{Reading pdb: Perception of molecules from 3d atomic coordinates}~//
+    \BibJournal{J. Chem. Inf. Model.}, 53(1):76–87, 2012.
+\bibitem{article13}
+    \BibAuthor{unmei Wang, Wei Wang, Peter A Kollman, and David A Case}
+    \BibTitle{Automatic atom type and bond type perception in molecular mechanical calculations}~//
+    \BibJournal{J. Mol. Graphics Modell.}, 25(2):247–260, 2006.
+\bibitem{article14}
+    \BibAuthor{Anna Katharina Dehof, Alexander Rurainski, Quang Bao Anh Bui, Sebastian Bocker, Hans-Peter Lenhof, and Andreas Hildebrandt}
+    \BibTitle{Automated bond order assignment as an optimization problem}~//
+    \BibJournal{Bioinformatics}, 27(5):619–625, 2011.
+\bibitem{article15}
+    \BibAuthor{Mathias Niepert, Mohamed Ahmed, Konstantin Kutzkov}
+    \BibTitle{Learning Convolutional Neural Networks for Graphs}~//
+    \BibJournal{}, 2016
+\bibitem{article16}
+    \BibAuthor{Steven Kearnes, Kevin McCloskey, Marc Berndl, Vijay Pande, Patrick Riley}
+    \BibTitle{Molecular Graph Convolutions: Moving Beyond Fingerprints}~//
+    \BibJournal{}, 2016
+\end{thebibliography}
+
+% Решение Программного Комитета:
+%\ACCEPTNOTE
+%\AMENDNOTE
+%\REJECTNOTE
+\end{document}
