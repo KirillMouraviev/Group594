@@ -1,2 +1,2 @@
 # Group594
-Group 594 research projects
+Group 594 research projects.
